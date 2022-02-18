@@ -1,9 +1,9 @@
 .popup__input {
-    padding: 30px 0 13px;
+    padding: 30px 0 13px 5px;
     font-size: 14px;
     line-height: 1.214;
     border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.7);
     box-sizing: border-box;
 }
 
@@ -12,7 +12,7 @@
 }
 
 .fpopup__input:focus {
-    border-color: cadetblue;
+    border-color:rgba(27, 66, 126, 0.2);
     outline: none;
 }
 
