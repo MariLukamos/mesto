@@ -1,0 +1,4 @@
+.popup__user-form-edit {
+  display: flex;
+  flex-direction: column; 
+}

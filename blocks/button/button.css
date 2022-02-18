@@ -1,0 +1,14 @@
+.button {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 0;
+    transition: opacity .7s ease;
+    cursor: pointer;
+    overflow: hidden;
+    background: transparent;
+}
+
+.button:hover {
+    opacity: 0.5;
+}

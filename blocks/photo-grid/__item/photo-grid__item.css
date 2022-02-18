@@ -1,0 +1,7 @@
+.photo-grid__item {
+    background: #FFFFFF;
+    border-radius: 10px;
+    overflow: hidden;
+    min-height: 361px;
+    box-sizing: border-box;
+}
