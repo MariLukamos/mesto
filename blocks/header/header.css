@@ -3,17 +3,12 @@
     border-bottom: 1px solid rgba(84, 84, 84, .7);
 }
 
-@media screen and (max-width: 980px) {
-    .header {
-      padding-left: calc(100% - 91.5625%);
-    }
-}
   
 @media screen and (max-width: 425px) {
     .header {
-      min-height: 56px;
       padding-top: 28px;
       padding-bottom: 31px;
+      padding-left: 0;
     }
 }
   

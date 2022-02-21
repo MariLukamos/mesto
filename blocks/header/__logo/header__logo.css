@@ -13,10 +13,11 @@
     cursor: pointer; 
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 880px) {
     .header__logo {
       width: 103.74px;
       height: 24.4px;
+      margin-left: calc(100% - 91.5625%);
     }
 }
   
