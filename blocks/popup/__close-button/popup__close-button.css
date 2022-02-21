@@ -8,6 +8,7 @@
     position: absolute;
     right: -40px;
     top: -40px;
+    background-size: contain;
 }
 
 @media screen and (max-width: 767px) {
