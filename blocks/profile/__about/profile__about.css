@@ -15,6 +15,12 @@
       line-height: 17px;
     }
 }
+
+@media screen and (max-width: 700px) {
+  .profile__about {
+    max-width: 220px;
+  }
+}
   
 @media screen and (max-width: 425px) {
     .profile__about {
