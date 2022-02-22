@@ -17,7 +17,6 @@
     .profile__info {
       max-width: 100%;
       grid-row-gap: 14px;
-      margin-top: 22px;
-      margin-bottom: 33px;
+      margin: 22px 0 33px;
     }
   }
