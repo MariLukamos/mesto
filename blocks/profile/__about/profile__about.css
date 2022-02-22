@@ -10,11 +10,11 @@
 }
 
 @media screen and (max-width: 980px) {
-    .profile__about {
-      font-size: 16px;
-      line-height: 17px;
-      max-width: 90%;
-    }
+  .profile__about {
+    font-size: 16px;
+    line-height: 17px;
+    max-width: 280px;;
+  }
 }
 
 @media screen and (max-width: 700px) {
@@ -27,8 +27,8 @@
 }
   
 @media screen and (max-width: 425px) {
-    .profile__about {
-      font-size: 14px;
-      text-align: center;
-    }
+  .profile__about {
+    font-size: 14px;
+    text-align: center;
+  }
 }

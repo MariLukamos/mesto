@@ -13,15 +13,20 @@
     cursor: pointer; 
 }
 
+@media screen and (max-width: 980px) {
+    .header__logo {
+      margin-left: calc(100% - 91.5625%);
+    }
+}
+
 @media screen and (max-width: 880px) {
     .header__logo {
       width: 103.74px;
       height: 24.4px;
-      margin-left: calc(100% - 91.5625%);
     }
 }
   
-  @media screen and (max-width: 320px) {
+@media screen and (max-width: 320px) {
     .header__logo {
       margin-left: 27px;
     }
