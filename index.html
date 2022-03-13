@@ -35,7 +35,7 @@
           <ul class="photo-grid__list">
             <template class="photo-grid-template">
               <li class="photo-grid__item">
-                <img src="#" alt="" class="photo-grid__image">
+                <img src="https://" alt="" class="photo-grid__image">
                 <div class="photo-grid__decription">
                   <h2 class="photo-grid__name"></h2>
                   <button type="button" class="photo-grid__button-like button" aria-label="Нравится"></button>
@@ -54,8 +54,8 @@
           <button class="popup__close-button button" type="button" aria-label="Выйти"></button>
             <h3 class="popup__title">Редактировать профиль</h3>
             <form class="popup__user-form-edit popup__form" name="profile-redactor" action="#">
-              <input class="popup__input popup__input_type_username" type="text" name="username" placeholder="Имя" value="Жак-Ив Кусто" minlength="2" maxlength="40" required>
-              <input class="popup__input popup__input_type_about" name="about" type="text" placeholder="О себе" minlength="2" maxlength="200" value="Исследователь океана" required>
+              <input class="popup__input popup__input_type_username" type="text" name="username" placeholder="Жак-Ив Кусто" minlength="2" maxlength="40" required>
+              <input class="popup__input popup__input_type_about" name="about" type="text" placeholder="Исследователь океана" minlength="2" maxlength="200" required>
               <button type="submit" class="popup__submit-button button">Сохранить</button>
             </form>
         </div>
@@ -65,8 +65,8 @@
             <button class="popup__close-button button" type="button" aria-label="Выйти"></button>
               <h3 class="popup__title">Новое место</h3>
               <form class="popup__photo-add-form popup__form" name="photo-redactor" action="#">
-                <input class="popup__input popup__input_place_name" type="text" name="photo-name" placeholder="Название" value="Название" minlength="2" maxlength="30" required>
-                <input class="popup__input popup__input_place_url" name="link" type="url" placeholder="Ссылка на картинку" value="Ссылка на картинку" required>
+                <input class="popup__input popup__input_place_name" type="text" name="photo-name" placeholder="Название" minlength="2" maxlength="30" required>
+                <input class="popup__input popup__input_place_url" name="link" type="url" placeholder="Ссылка на картинку" required>
                 <button type="submit" class="popup__submit-button button">Создать</button>
               </form>
           </div>
