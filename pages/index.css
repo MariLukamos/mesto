@@ -23,6 +23,7 @@
 @import url(../blocks/photo-grid/__name/photo-grid__name.css);
 @import url(../blocks/photo-grid/__remove-button/photo-grid__remove-button.css);
 @import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/__popup-photo/popup__popup-photo.css);
 @import url(../blocks/popup/__image-figure/popup__image-figure.css);
 @import url(../blocks/popup/__image/popup__image.css);
 @import url(../blocks/popup/__container/popup__container.css);

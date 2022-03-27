@@ -19,7 +19,7 @@ const placeInput = document.querySelector('.popup__input_place_name');
 const placeInputError = document.querySelector('.place_name-input-error');
 const linkInput = document.querySelector('.popup__input_place_url');
 const linkInputError = document.querySelector('.place_url-input-error');
-const popupImage = document.querySelector('.popup-photo');
+const popupImage = document.querySelector('.popup__popup-photo');
 const popupImagePicture = popupImage.querySelector('.popup__image');
 const popupImageTitle = popupImage.querySelector('.popup__caption');
 const imageCloseButton = popupImage.querySelector('.popup__close-button');
@@ -90,16 +90,13 @@ function clearInput() {
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', closePopupEsc);
-    placeInput.value = '';
-    linkInput.value = '';
-    clearInput();
 }
 
 function editProfile(event) {
    event.preventDefault();
    openPopup(editProfilePopup);
-    submitEditProfile.classList.remove('popup__submit-button_disabled');
-    submitEditProfile.disabled = false;
+   const buttonSubmit = profileForm.querySelector('.popup__submit-button');
+   setButtonState(buttonSubmit, 'popup__submit-button_disabled', false);
     nameInput.value = profileTitle.textContent;
     aboutInput.value = profileAbout.textContent;
 }
@@ -128,9 +125,11 @@ function closePopupSuburb(event) {
 imageCloseButton.addEventListener('click', ()=>{closePopup(popupImage)});
 cardCloseButton.addEventListener('click', ()=>{closePopup(addCardPopup)});
 showAddCardPopup.addEventListener('click', ()=>{
-    openPopup(addCardPopup)
-    submitButtonAddCard.classList.add('popup__submit-button_disabled');
-    submitButtonAddCard.disabled = true;
+    openPopup(addCardPopup);
+    clearInput();
+    placeInput.value = '';
+    linkInput.value = '';
+    setButtonState(submitButtonAddCard, 'popup__submit-button_disabled', true);
 });
 profileEditButton.addEventListener('click', editProfile);
 profileCloseButton.addEventListener('click', () => closePopup(editProfilePopup));
