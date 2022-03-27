@@ -1,5 +1,5 @@
 .popup__input {
-    padding: 22px 0 13px;
+    padding: 0 0 13px;
     font-size: 14px;
     line-height: 1.214;
     border: none;
@@ -7,17 +7,6 @@
     box-sizing: border-box;
 }
 
-.popup__input:last-of-type {
-    margin-bottom: 48px;
-}
-
 .popup__input:focus {
-    border-color:rgba(27, 66, 126, 0.2);
-    outline-color: cornflowerblue;
-}
-
-@media screen and (max-width: 650px) {
-    .popup__input:last-of-type {
-      margin-bottom: 45px;
-    }
+    outline: none;
 }

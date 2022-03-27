@@ -43,12 +43,12 @@
         <div class="popup__container">
           <button class="popup__close-button button" type="button" aria-label="Выйти"></button>
             <h3 class="popup__title">Редактировать профиль</h3>
-            <form class="popup__user-form-edit popup__form" name="profile-redactor" action="#">
-              <input class="popup__input popup__input_type_username" type="text" name="username" placeholder="Жак-Ив Кусто" minlength="2" maxlength="40" required>
-              <span class="popup__input-error username-input-error"></span>
-              <input class="popup__input popup__input_type_about" name="about" type="text" placeholder="Исследователь океана" minlength="2" maxlength="200" required>
-              <span class="popup__input-error userabout-input-error"></span>
-              <button type="submit" class="popup__submit-button button">Сохранить</button>
+            <form class="popup__user-form-edit popup__form" name="profile-redactor" novalidate>
+              <input class="popup__input popup__input_type_username" id="username" type="text" name="username" placeholder="Жак-Ив Кусто" minlength="2" maxlength="40" pattern="^[a-zA-Zа-яА-я-\s]+$" autocomplete="off" required>
+              <span class="popup__input-error username-input-error" id="username-error"></span>
+              <input class="popup__input popup__input_type_about" id="about" name="about" type="text" placeholder="Исследователь океана" minlength="2" maxlength="200" pattern="^[a-zA-Zа-яА-я-\s]+$" autocomplete="off" required>
+              <span class="popup__input-error userabout-input-error" id="about-error"></span>
+              <button type="submit" name="submit" class="popup__submit-button button">Сохранить</button>
             </form>
         </div>
       </div>
@@ -56,12 +56,12 @@
           <div class="popup__container">
             <button class="popup__close-button button" type="button" aria-label="Выйти"></button>
               <h3 class="popup__title">Новое место</h3>
-              <form class="popup__photo-add-form popup__form" name="photo-redactor" action="#">
-                <input class="popup__input popup__input_place_name" type="text" name="photo-name" placeholder="Название" minlength="2" maxlength="30" required>
-                <span class="popup__input-error place_name-input-error"></span>
-                <input class="popup__input popup__input_place_url" name="link" type="url" placeholder="Ссылка на картинку" required>
-                <span class="popup__input-error place_url-input-error"></span>
-                <button type="submit" class="popup__submit-button button">Создать</button>
+              <form class="popup__photo-add-form popup__form" name="photo-redactor" novalidate>
+                <input class="popup__input popup__input_place_name" id="placename" type="text" name="photo-name" placeholder="Название" minlength="2" maxlength="30" pattern="^[a-zA-Zа-яА-я-\s]+$" required>
+                <span class="popup__input-error place_name-input-error" id="placename-error"></span>
+                <input class="popup__input popup__input_place_url" id="link" name="link" type="url" placeholder="Ссылка на картинку" required>
+                <span class="popup__input-error place_url-input-error" id="link-error"></span>
+                <button type="submit" name="submit" class="popup__submit-button button">Создать</button>
               </form>
           </div>
       </div>
