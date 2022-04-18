@@ -1,3 +1,7 @@
+export const popupImage = document.querySelector('.popup_type_photo');
+export const popupImagePicture = popupImage.querySelector('.popup__image');
+export const popupImageTitle = popupImage.querySelector('.popup__caption');
+
 import { Card } from './Card.js';
 import { FormValidator, selectors } from './FormValidator.js';
 
@@ -15,9 +19,6 @@ const showAddCardPopup = document.querySelector('.profile__add-button');
 const cardCloseButton = addCardPopup.querySelector('.popup__close-button');
 const placeInput = document.querySelector('.popup__input_place_name');
 const linkInput = document.querySelector('.popup__input_place_url');
-export const popupImage = document.querySelector('.popup_type_photo');
-export const popupImagePicture = popupImage.querySelector('.popup__image');
-export const popupImageTitle = popupImage.querySelector('.popup__caption');
 const imageCloseButton = popupImage.querySelector('.popup__close-button');
 const cardContainer = document.querySelector('.photo-grid__list');
 const modalWindowForm = document.querySelector('.popup__form');
