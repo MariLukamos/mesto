@@ -1,26 +1,77 @@
-const initialCards = [
-    {
-      name: "Озеро Тургояк",
-      link: "https://images.unsplash.com/photo-1608411404585-6bbd9c6cec96?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80",
-    },
-    {
-      name: "Озеро Зюраткуль",
-      link: "https://images.unsplash.com/photo-1637073247480-99b12c71d56a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-    },
-    {
-      name: "Таганай",
-      link: "https://images.unsplash.com/photo-1610738918169-3df48c0a231c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80",
-    },
-    {
-      name: "Сад...",
-      link: "https://images.unsplash.com/photo-1510942752400-ebce99a8a2c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80",
-    },
-    {
-      name: "Сосновый лес",
-      link: "https://images.unsplash.com/photo-1635417006446-a99b4e952c2a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80",
-    },
-    {
-      name: "Миасс",
-      link: "https://images.unsplash.com/photo-1514400492509-eb84a50d38d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80",
-    },
-];
+import { popupImageTitle, popupImagePicture, popupImage, openModalWindow } from './index.js';
+
+export class Card {
+  constructor(data, cardSelector) {
+    this._name = data.name
+    this._link = data.link
+    this._cardSelector = cardSelector
+  }
+
+  //Методы
+
+    //Получение карточки
+  _getCardTemplate() {
+    this._view = document
+      .querySelector(this._cardSelector)
+      .content
+      .querySelector('.photo-grid__item')
+      .cloneNode(true)
+  }
+
+    //Публичный метод отрисовки карточки
+  renderCard(container) {
+    this._getCardTemplate()
+    this._setEventListeners()
+    this._cardImage = this._view.querySelector('.photo-grid__image')
+    this._cardImage.src = this._link
+    this._cardImage.alt = this._name
+    this._view.querySelector('.photo-grid__name').textContent = this._name
+    container.append(this._view)
+  }
+
+    //Слушатели событий
+  _setEventListeners() {
+    //Лайк
+    this._view
+    .querySelector('.photo-grid__button-like')
+    .addEventListener('click', () => {
+      this._handleLikeCard()
+    })
+
+    //Удаление
+    this._view
+    .querySelector('.photo-grid__remove-button')
+    .addEventListener('click', () => {
+      this._handleRemoveCard()
+    })
+
+    //Открытие попапа с изображением
+    this._view
+    .querySelector('.photo-grid__image')
+    .addEventListener('click', () => {
+      this._handleOpenPopupWithImage()
+    })
+  }
+
+  //Лайк
+  _handleLikeCard() {
+    this._view
+    .querySelector('.photo-grid__button-like').
+    classList.
+    toggle('photo-grid__button-like_activated');
+  }
+
+  //Удаление
+  _handleRemoveCard() {
+    this._view
+    .closest('.photo-grid__item')
+    .remove()
+  }
+
+    //Открытие попапа с изображением
+  _handleOpenPopupWithImage() {
+    popupImagePicture.src = this._link
+    popupImageTitle.textContent = this._name
+    openModalWindow(popupImage);
+  }
+}
