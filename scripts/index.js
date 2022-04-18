@@ -15,6 +15,9 @@ const showAddCardPopup = document.querySelector('.profile__add-button');
 const cardCloseButton = addCardPopup.querySelector('.popup__close-button');
 const placeInput = document.querySelector('.popup__input_place_name');
 const linkInput = document.querySelector('.popup__input_place_url');
+export const popupImage = document.querySelector('.popup_type_photo');
+export const popupImagePicture = popupImage.querySelector('.popup__image');
+export const popupImageTitle = popupImage.querySelector('.popup__caption');
 const imageCloseButton = popupImage.querySelector('.popup__close-button');
 const cardContainer = document.querySelector('.photo-grid__list');
 const modalWindowForm = document.querySelector('.popup__form');
@@ -45,9 +48,6 @@ const initialCards = [
     link: "https://images.unsplash.com/photo-1514400492509-eb84a50d38d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80",
   },
 ];
-export const popupImage = document.querySelector('.popup_type_photo');
-export const popupImagePicture = popupImage.querySelector('.popup__image');
-export const popupImageTitle = popupImage.querySelector('.popup__caption');
 
 export const openModalWindow = (modalWindow) => {
   modalWindow.classList.add('popup_opened')
