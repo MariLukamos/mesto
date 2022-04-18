@@ -7,9 +7,6 @@ export default class Card {
     this._cardSelector = cardSelector
   }
 
-  //Методы
-
-    //Получение карточки
   _getCardTemplate() {
     this._view = document
       .querySelector(this._cardSelector)
@@ -18,7 +15,6 @@ export default class Card {
       .cloneNode(true)
   }
 
-    //Публичный метод отрисовки карточки
   renderCard(container) {
     this._getCardTemplate()
     this._setEventListeners()
@@ -29,23 +25,19 @@ export default class Card {
     container.append(this._view)
   }
 
-    //Слушатели событий
   _setEventListeners() {
-    //Лайк
     this._view
     .querySelector('.photo-grid__button-like')
     .addEventListener('click', () => {
       this._handleLikeCard()
     })
 
-    //Удаление
     this._view
     .querySelector('.photo-grid__remove-button')
     .addEventListener('click', () => {
       this._handleRemoveCard()
     })
 
-    //Открытие попапа с изображением
     this._view
     .querySelector('.photo-grid__image')
     .addEventListener('click', () => {
@@ -53,7 +45,6 @@ export default class Card {
     })
   }
 
-  //Лайк
   _handleLikeCard() {
     this._view
     .querySelector('.photo-grid__button-like').
@@ -61,14 +52,12 @@ export default class Card {
     toggle('photo-grid__button-like_activated');
   }
 
-  //Удаление
   _handleRemoveCard() {
     this._view
     .closest('.photo-grid__item')
     .remove()
   }
 
-    //Открытие попапа с изображением
   _handleOpenPopupWithImage() {
     popupImagePicture.src = this._link
     popupImageTitle.textContent = this._name

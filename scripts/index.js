@@ -54,13 +54,11 @@ export const openModalWindow = (modalWindow) => {
   document.addEventListener('keydown', handleEscPress)
 } 
 
-//Функция закрытия попапа
 export const closeModalWindow = (modalWindow) => {
  modalWindow.classList.remove('popup_opened')
  document.removeEventListener('keydown', handleEscPress)
 }
 
-//Функция закрытия попаов по нажатию на Esc
 export const handleEscPress = (e) => {
   if (e.key === 'Escape') {
     const modalOpened = document.querySelector('.popup_opened')
@@ -68,7 +66,6 @@ export const handleEscPress = (e) => {
   }
 }
 
-//Функция закрытия попапов по клику на оверлей
 const handleClickOverlay = (e) => {
   if (e.target.classList.contains('popup_opened')) {
     closeModalWindow(e.target)
@@ -83,11 +80,9 @@ function clearInput() {
   });
 }
 
-//Вызов функции закрытия попапа по клику на оверлей
 editProfilePopup.addEventListener('click', handleClickOverlay)
 addCardPopup.addEventListener('click', handleClickOverlay)
 
-// Функция отправки формы редактирования профиля с отменой стандартной отправки
 function handleProfileEditForm (e) {
   e.preventDefault()
   profileTitle.textContent = nameInput.value;
@@ -95,17 +90,16 @@ function handleProfileEditForm (e) {
   closeModalWindow(editProfilePopup)
 }
 
-//Функция передачи имени и описания профиля в поля ввода формы
 function handleProfileInputValue () {
   nameInput.value = profileTitle.textContent;
   aboutInput.value = profileAbout.textContent;
 }
-//Функция деактивации кнопки сабмита в попапе добавления карточки
+
 const handleAddFormButtonState = () => {
   submitButtonAddCard.classList.add('popup__submit-button_disabled')
   submitButtonAddCard.disabled = true
 }
-//Вызовы функций открытия, закрытия и отправки попапов
+
 profileEditButton.addEventListener('click', function () {
   handleProfileInputValue()
   openModalWindow(editProfilePopup)
