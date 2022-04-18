@@ -1,4 +1,4 @@
-import { Card } from './Card.js';
+import Card from './Card.js';
 import { FormValidator, selectors } from './FormValidator.js';
 
 const editProfilePopup = document.querySelector('.popup-profile');
