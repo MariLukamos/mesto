@@ -1,4 +1,4 @@
-import { popupImageTitle, popupImagePicture, popupImage, openModalWindow } from './index.js';
+import { popupImageTitle, popupImagePicture, popupImage, openModalWindow } from './utils.js';
 
 export default class Card {
   constructor(data, cardSelector) {
@@ -15,14 +15,14 @@ export default class Card {
       .cloneNode(true)
   }
 
-  renderCard(container) {
-    this._getCardTemplate()
-    this._setEventListeners()
-    this._cardImage = this._view.querySelector('.photo-grid__image')
-    this._cardImage.src = this._link
-    this._cardImage.alt = this._name
-    this._view.querySelector('.photo-grid__name').textContent = this._name
-    container.append(this._view)
+  createCard() {
+    this._getCardTemplate();
+    this._setEventListeners();
+    this._cardImage = this._view.querySelector('.photo-grid__image');
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
+    this._view.querySelector('.photo-grid__name').textContent = this._name;
+    return this._view;
   }
 
   _setEventListeners() {
@@ -53,14 +53,14 @@ export default class Card {
   }
 
   _handleRemoveCard() {
-    this._view
-    .closest('.photo-grid__item')
-    .remove()
+    this._view.remove();
+    this._view = null;
   }
 
   _handleOpenPopupWithImage() {
-    popupImagePicture.src = this._link
-    popupImageTitle.textContent = this._name
+    popupImagePicture.src = this._link;
+    popupImagePicture.alt = this._name;
+    popupImageTitle.textContent = this._name;
     openModalWindow(popupImage);
   }
 }

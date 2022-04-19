@@ -1,5 +1,6 @@
 import Card from './Card.js';
 import { FormValidator, selectors } from './FormValidator.js';
+import { popupImageTitle, popupImagePicture, popupImage, openModalWindow } from './utils.js';
 
 const editProfilePopup = document.querySelector('.popup-profile');
 const profileTitle = document.querySelector('.profile__name');
@@ -15,12 +16,10 @@ const showAddCardPopup = document.querySelector('.profile__add-button');
 const cardCloseButton = addCardPopup.querySelector('.popup__close-button');
 const placeInput = document.querySelector('.popup__input_place_name');
 const linkInput = document.querySelector('.popup__input_place_url');
-export const popupImage = document.querySelector('.popup_type_photo');
-export const popupImagePicture = popupImage.querySelector('.popup__image');
-export const popupImageTitle = popupImage.querySelector('.popup__caption');
 const imageCloseButton = popupImage.querySelector('.popup__close-button');
 const cardContainer = document.querySelector('.photo-grid__list');
 const modalWindowForm = document.querySelector('.popup__form');
+const profileForm = document.querySelector('.popup__user-form-edit');
 
 const initialCards = [
   {
@@ -49,11 +48,6 @@ const initialCards = [
   },
 ];
 
-export const openModalWindow = (modalWindow) => {
-  modalWindow.classList.add('popup_opened')
-  document.addEventListener('keydown', handleEscPress)
-} 
-
 export const closeModalWindow = (modalWindow) => {
  modalWindow.classList.remove('popup_opened')
  document.removeEventListener('keydown', handleEscPress)
@@ -65,6 +59,9 @@ export const handleEscPress = (e) => {
     closeModalWindow(modalOpened)
   }
 }
+
+const formValidProfile = new FormValidator(selectors, profileForm);
+const formValidCard = new FormValidator(selectors, addCardForm);
 
 const handleClickOverlay = (e) => {
   if (e.target.classList.contains('popup_opened')) {
@@ -79,6 +76,9 @@ function clearInput() {
     item.classList.remove('popup__input_type_error');
   });
 }
+
+formValidProfile.enableValidation();
+formValidCard.enableValidation();
 
 editProfilePopup.addEventListener('click', handleClickOverlay)
 addCardPopup.addEventListener('click', handleClickOverlay)
@@ -95,21 +95,22 @@ function handleProfileInputValue () {
   aboutInput.value = profileAbout.textContent;
 }
 
-const handleAddFormButtonState = () => {
-  submitButtonAddCard.classList.add('popup__submit-button_disabled')
-  submitButtonAddCard.disabled = true
-}
+//const handleAddFormButtonState = () => {
+  //formValidCard.disableSubmitButton();
+//}
 
 profileEditButton.addEventListener('click', function () {
   handleProfileInputValue()
+  formValidProfile.enableSubmitButton()
+  formValidProfile.clearInput();
   openModalWindow(editProfilePopup)
 })
 profileCloseButton.addEventListener('click', () => closeModalWindow(editProfilePopup))
 modalWindowForm.addEventListener('submit', handleProfileEditForm)
 showAddCardPopup.addEventListener('click', () => {
-  handleAddFormButtonState()
-  clearInput()
-  addCardForm.reset()
+  formValidCard.disableSubmitButton();
+  formValidCard.clearInput();
+  addCardForm.reset();
   openModalWindow(addCardPopup)
 })
 cardCloseButton.addEventListener('click', () => closeModalWindow(addCardPopup))
@@ -129,15 +130,8 @@ imageCloseButton.addEventListener('click', () => closeModalWindow(popupImage))
 popupImage.addEventListener('click', handleClickOverlay)
 const handleAddCard = (item) => {
   const newCard = new Card(item, '#photo-grid-template')
-  newCard.renderCard(cardContainer)
+  cardContainer.prepend(newCard.createCard());
 }
 initialCards.reverse().forEach((item) => {
   handleAddCard(item)
-})
-
-const formList = Array.from(document.querySelectorAll('.popup__form'))
-
-formList.forEach((item) => {
-  const valid = new FormValidator(selectors, item)
-  valid.enableValidation()
 })
