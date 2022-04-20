@@ -60,13 +60,13 @@ export class FormValidator {
   }
 
   enableSubmitButton() { 
-    this._buttonElement.disbaled = false;
+    this._buttonElement.disabled = false;
     this._buttonElement.classList.remove(this._inactiveButtonClass)
   }
 
   disableSubmitButton() {
     this._buttonElement.classList.add(this._inactiveButtonClass);
-    this._buttonElement.disbaled = true;
+    this._buttonElement.disabled = true;
   }
   enableValidation() {
     this._setIventListeners()
