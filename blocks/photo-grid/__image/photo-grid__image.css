@@ -5,6 +5,7 @@
     object-position: center;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
+    display: block;
 }
 
 .photo-grid__image:hover {
