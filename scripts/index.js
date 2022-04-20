@@ -69,14 +69,6 @@ const handleClickOverlay = (e) => {
   }
 }
 
-function clearInput() {
-  const inputErrorList = Array.from(document.querySelectorAll('.popup__input-error_active, .popup__input_type_error'));
-  inputErrorList.forEach(function (item) {
-    item.classList.remove('popup__input-error_active');
-    item.classList.remove('popup__input_type_error');
-  });
-}
-
 formValidProfile.enableValidation();
 formValidCard.enableValidation();
 
@@ -108,10 +100,10 @@ profileEditButton.addEventListener('click', function () {
 profileCloseButton.addEventListener('click', () => closeModalWindow(editProfilePopup))
 modalWindowForm.addEventListener('submit', handleProfileEditForm)
 showAddCardPopup.addEventListener('click', () => {
-  formValidCard.disableSubmitButton();
   formValidCard.clearInput();
   addCardForm.reset();
-  openModalWindow(addCardPopup)
+  formValidCard.disableSubmitButton();
+  openModalWindow(addCardPopup);
 })
 cardCloseButton.addEventListener('click', () => closeModalWindow(addCardPopup))
 function addCard (e) {
