@@ -1,6 +1,6 @@
 import Card from './Card.js';
 import { FormValidator, selectors } from './FormValidator.js';
-import { popupImageTitle, popupImagePicture, popupImage, openModalWindow } from './utils.js';
+import { popupImage, openModalWindow, handleEscPress } from './utils.js';
 
 const editProfilePopup = document.querySelector('.popup-profile');
 const profileTitle = document.querySelector('.profile__name');
@@ -53,13 +53,6 @@ export const closeModalWindow = (modalWindow) => {
  document.removeEventListener('keydown', handleEscPress)
 }
 
-export const handleEscPress = (e) => {
-  if (e.key === 'Escape') {
-    const modalOpened = document.querySelector('.popup_opened')
-    closeModalWindow(modalOpened)
-  }
-}
-
 const formValidProfile = new FormValidator(selectors, profileForm);
 const formValidCard = new FormValidator(selectors, addCardForm);
 
@@ -86,10 +79,6 @@ function handleProfileInputValue () {
   nameInput.value = profileTitle.textContent;
   aboutInput.value = profileAbout.textContent;
 }
-
-//const handleAddFormButtonState = () => {
-  //formValidCard.disableSubmitButton();
-//}
 
 profileEditButton.addEventListener('click', function () {
   handleProfileInputValue()

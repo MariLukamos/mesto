@@ -6,3 +6,10 @@ export const openModalWindow = (modalWindow) => {
     modalWindow.classList.add('popup_opened')
     document.addEventListener('keydown', handleEscPress)
 } 
+
+export const handleEscPress = (e) => {
+    if (e.key === 'Escape') {
+      const modalOpened = document.querySelector('.popup_opened')
+      closeModalWindow(modalOpened)
+    }
+  }
