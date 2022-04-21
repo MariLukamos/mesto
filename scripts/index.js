@@ -1,6 +1,6 @@
 import Card from './Card.js';
 import { FormValidator, selectors } from './FormValidator.js';
-import { popupImage, openModalWindow, handleEscPress } from './utils.js';
+import { popupImage, openModalWindow, closeModalWindow } from './utils.js';
 
 const editProfilePopup = document.querySelector('.popup-profile');
 const profileTitle = document.querySelector('.profile__name');
@@ -48,10 +48,7 @@ const initialCards = [
   },
 ];
 
-export const closeModalWindow = (modalWindow) => {
- modalWindow.classList.remove('popup_opened')
- document.removeEventListener('keydown', handleEscPress)
-}
+
 
 const formValidProfile = new FormValidator(selectors, profileForm);
 const formValidCard = new FormValidator(selectors, addCardForm);

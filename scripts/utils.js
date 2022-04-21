@@ -12,4 +12,9 @@ export const handleEscPress = (e) => {
       const modalOpened = document.querySelector('.popup_opened')
       closeModalWindow(modalOpened)
     }
-  }
+}
+
+export const closeModalWindow = (modalWindow) => {
+    modalWindow.classList.remove('popup_opened')
+    document.removeEventListener('keydown', handleEscPress)
+}
